@@ -1,1 +1,5 @@
+Requirements:
+
+  pandas 
+  sklearn
 
