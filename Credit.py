@@ -20,15 +20,38 @@ def probability(a):
     result = model.predict(customer[X.columns])
     return result
 
+while True:
+    
+    a = int(input("Enter id: "))
 
-a = int(input("Enter id: "))
+    if a in df["customer_id"].values:
 
-if a in df["customer_id"].values:
+        b = input(f"Hi {a}, welcome back. Would you like me to check if you can repay your loan on time? ")
 
-    b = input(f"Hi {a}, welcome back. Would you like me to check if you can repay your loan on time? ")
+        if b=="yes":
 
-    if b=="yes":
+            c = int(input("Enter how much money you need to borrow: "))
+            df.loc[df["customer_id"] == a, "loan_amount"] = c
+            print(probability(a))
 
-        c = int(input("Enter how much money you need to borrow: "))
-        df.loc[df["customer_id"] == a, "loan_amount"] = c
-        print(probability(a))
+        else:
+            print("No problem,have a nice day.")
+            exit()
+
+    if a not in df["customer_id"].values:
+        print("Welcome, is this a new id");
+
+        if a=="yes":
+            d=input("Would you like me to register it in the system?")
+
+            if d=="yes":
+
+            
+                
+                
+
+                
+
+            
+
+            
