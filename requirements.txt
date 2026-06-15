@@ -1,5 +1,5 @@
 Requirements:
 
   pandas 
-  sklearn
+  scikit-learn
 
