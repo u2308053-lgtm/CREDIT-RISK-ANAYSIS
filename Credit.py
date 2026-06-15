@@ -32,7 +32,13 @@ while True:
 
             c = int(input("Enter how much money you need to borrow: "))
             df.loc[df["customer_id"] == a, "loan_amount"] = c
-            print(probability(a))
+            prediction=probability(a)
+            if prediction[0]=="yes":
+                print("Low risk")
+            else:
+                print("High risk")
+            df.loc[df["customer_id"] == a, "loan_result"] = prediction[0]
+            df.to_csv("Credit_dataset.csv", index=False)
 
         else:
             print("No problem,have a nice day.")
@@ -46,15 +52,15 @@ while True:
 
             if d=="yes":
 
-                Input1 = input("existing customer: ")
-                
-                Input2 = input("relationship years: ")
+                Input1 = int(input("existing customer (1/0): "))
 
+                Input2 = int(input("relationship years: "))
+                
                 Input3 = float(input("monthly income: "))
                 
                 Input4 = input("employment type: ")
                 
-                Input5 = float(input("experience: "))
+                Input5 = float(input("experience (years): "))
                 
                 Input6 = float(input("existing emi: "))
                 
@@ -68,13 +74,15 @@ while True:
                 
                 Input11 = int(input("late payments count: "))
                 
-                Input12 = float(input("previous loan amount: "))
+                Input12 = float(input("loan amount: "))
                 
                 Input13 = int(input("loan tenure months: "))
                 
                 Input14 = input("loan type: ")
                 
                 Input15 = float(input("dti ratio: "))
+                
+                Input16 = input("previous loan result (yes/no): ")
 
                 new_customer = {
                 "customer_id": a,
@@ -92,7 +100,8 @@ while True:
                 "loan_amount": Input12,
                 "loan_tenure_months": Input13,
                 "loan_type": Input14,
-                "dti_ratio": Input15
+                "dti_ratio": Input15,
+                "loan_result": Input16
                 }
             
                 df.loc[len(df)] = new_customer
