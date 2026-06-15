@@ -39,16 +39,77 @@ while True:
             exit()
 
     if a not in df["customer_id"].values:
-        print("Welcome, is this a new id");
+        c=input("Welcome, is this a new id");
 
-        if a=="yes":
+        if c=="yes":
             d=input("Would you like me to register it in the system?")
 
             if d=="yes":
 
+                Input1 = input("existing customer: ")
+                
+                Input2 = input("relationship years: ")
+
+                Input3 = float(input("monthly income: "))
+                
+                Input4 = input("employment type: ")
+                
+                Input5 = float(input("experience: "))
+                
+                Input6 = float(input("existing emi: "))
+                
+                Input7 = float(input("monthly expenses: "))
+                
+                Input8 = float(input("credit score: "))
+                
+                Input9 = int(input("number of previous defaults: "))
+                
+                Input10 = int(input("number of past loans: "))
+                
+                Input11 = int(input("late payments count: "))
+                
+                Input12 = float(input("previous loan amount: "))
+                
+                Input13 = int(input("loan tenure months: "))
+                
+                Input14 = input("loan type: ")
+                
+                Input15 = float(input("dti ratio: "))
+
+                new_customer = {
+                "customer_id": a,
+                "is_existing_customer": Input1,
+                "relationship_years": Input2,
+                "monthly_income": Input3,
+                "employment_type": Input4,
+                "years_in_job": Input5,
+                "existing_emi": Input6,
+                "monthly_expenses": Input7,
+                "credit_score": Input8,
+                "previous_default": Input9,
+                "number_of_past_loans": Input10,
+                "late_payments_count": Input11,
+                "loan_amount": Input12,
+                "loan_tenure_months": Input13,
+                "loan_type": Input14,
+                "dti_ratio": Input15
+                }
             
+                df.loc[len(df)] = new_customer
+
+                df.to_csv("Credit_dataset.csv", index=False)
+
+            else:
+                print("Okey,have a nice day")
+
+        else:
+            print("Okey,enter again")
+            
+        
                 
-                
+                            
+                                
+                                
 
                 
 
